@@ -227,19 +227,19 @@
                   <ul>
                      <li>
                         <label for="name">Your Name</label>
-                        <input type="text" name="name" id="name" class="form-long _req">
+                        <input type="text" name="name" id="name" class="form-long _req" tabindex="1">
                      </li>
                      <li>
                         <label for="email">Your Email Address</label>
-                        <input type="email" name="email" id="email" class="form-long _req email">
+                        <input type="email" name="email" id="email" class="form-long _req email" tabindex="2">
                      </li>
                      <li>
                         <label for="subject">Your Subject</label>
-                        <input type="text" name="subject" id="subject" class="form-control form-long">
+                        <input type="text" name="subject" id="subject" class="form-control form-long" tabindex="3">
                      </li>
                      <li>
                         <label for="message">Your Message</label>
-                        <textarea name="message" id="message" class="form-long form-textarea" rows="12"></textarea>
+                        <textarea name="message" id="message" class="form-long form-textarea" tabindex="4"></textarea>
                      </li>
                      <li>
                         <div style="transform:scale(0); opacity:0;">
@@ -247,7 +247,7 @@
                         </div>
                      </li>
                      <li>
-                        <button type="submit" />Submit
+                        <button type="submit" style="top:-78px; transition: .5s" tabindex="5" />Submit
                      </li>
                   </ul>
                </form>

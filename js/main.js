@@ -114,15 +114,24 @@ document.addEventListener('DOMContentLoaded', () => {
    const form = document.getElementById('form')
    let recaptcha = document.querySelector('.g-recaptcha')
    recaptcha.dataset.sitekey = '6LcpxWgaAAAAAACX2TBUahxPuf3tqUyUw0nOqQWB'
-   let allInput = document.querySelectorAll('input')
-   console.log(allInput);
+   let submitBtn = document.querySelector('button')
+   console.log(submitBtn);
 
    form.addEventListener('focusin', () => {
 
       recaptcha.parentNode.style.transition = '.6s'
       recaptcha.parentNode.style.opacity = '1'
       recaptcha.parentNode.style.transform = 'scale(1)'
+      controlSubmitBtn()
    })
+   form.addEventListener('focusout', () => {
+
+      recaptcha.parentNode.style.opacity = '0'
+      recaptcha.parentNode.style.transform = 'scale(0)'
+      controlSubmitBtn()
+   })
+
+
 
    form.addEventListener('submit', formSend)
 
@@ -150,11 +159,13 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('ответ с сервера', response.ok,)
             recaptcha.parentNode.style.opacity = '0'
             recaptcha.parentNode.style.transform = 'scale(0)'
+            controlSubmitBtn()
          } else {
             console.log('ответ с сервера', response.ok,)
             form.classList.remove('_sending')
             recaptcha.parentNode.style.opacity = '0'
             recaptcha.parentNode.style.transform = 'scale(0)'
+            controlSubmitBtn()
          }
       } else {
          // alert('Заполните все поля')
@@ -197,7 +208,15 @@ document.addEventListener('DOMContentLoaded', () => {
    }
 
    function emailTest(input) {
-      return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-])+$/.test(input.value)
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-])+$/.test(input.value)
+   }
+
+   function controlSubmitBtn() {
+      if (recaptcha.parentNode.style.opacity == '0') {
+         submitBtn.style.top = '-78px'
+      } else {
+         submitBtn.style.top = '0px'
+      }
    }
 })
 

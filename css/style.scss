@@ -60,17 +60,7 @@
    top: -1000%;
    text-align: center;
 }
-   
-// .header_content p{
-//    display: inline-block;
-//    margin-top: 20px;
-//    padding-left: 0px;
-//    padding-right: 0px;
-//    margin-left: auto;
-//    margin-right: auto;
-//    margin-bottom: 20px;
-   
-// }
+
 .header_content {
    p{
       
@@ -112,14 +102,14 @@
       display: inline-block;
       padding: 7px;
       transform: rotate(45deg);
-      animation: dropDown 1.5s ease-out .5s infinite;
+      animation: dropDown 2s ease-out infinite;
       
    }
 }
 
 @keyframes dropDown {
    from{ top: -20px;opacity: 0;}
-   50%{top:0px;opacity: 1;}
+   50%{top:0px;opacity: .5;}
    to{top:20px;opacity: 0;}
 }
 
@@ -387,13 +377,15 @@
 .form input[type=email],
 textarea, 
 select{
+   font-weight: 600;
 	box-sizing: border-box;
 	border:1px solid #BEBEBE;
 	padding: 7px;
 	margin:0px;
-	transition: all .3s ease-in-out;
+	transition: all .15s ease-in-out;
 	outline: none;	
    border-radius: 5px;
+   background-color: rgb(240, 240, 240);
 }
 .form input[type=text]:focus, 
 .form input[type=date]:focus,
@@ -405,13 +397,10 @@ select{
 .form input[type=email]:focus,
 .form textarea:focus, 
 .form select:focus{
+   background-color: #fff;
 	box-shadow: 0 0 8px rgb(153, 167, 177);
 	border: 1px solid rgb(153, 167, 177);
 }
-// .form .form-divided{
-// 	width: 49%;
-// }
-
 .form .form-long{
 	width: 100%;
 }
@@ -419,7 +408,9 @@ select{
 	width: 100%;
 }
 .form .form-textarea{
+   resize: vertical;
 	height: 100px;
+   max-height: 300px;
 }
 .form input._error{
    box-shadow: 0 0 10px red;
@@ -431,14 +422,19 @@ select{
 	color: #fff;
 }
 .form button[type=submit], .form button[type=button]{
+   position: relative;
 	background: #4B99AD;
 	padding: 8px 15px 8px 15px;
 	border: none;
 	color: #fff;
 }
-.form input[type=submit]:hover, .form input[type=button]:hover{
+.form button[type=submit]:hover, .form button[type=button]:hover{
 	background: #4691A4;
-	box-shadow:none;
+   box-shadow: 0 0 8px rgb(153, 167, 177);
+}
+.form button[type=submit]:focus, .form button[type=button]:focus{
+	background: #4691A4;
+   box-shadow: 0 0 8px rgb(153, 167, 177);
 }
    //-----------------------------------------------------------
 

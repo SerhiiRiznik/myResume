@@ -103,8 +103,8 @@
   padding: 7px;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
-  -webkit-animation: dropDown 1.5s ease-out .5s infinite;
-          animation: dropDown 1.5s ease-out .5s infinite;
+  -webkit-animation: dropDown 2s ease-out infinite;
+          animation: dropDown 2s ease-out infinite;
 }
 
 @-webkit-keyframes dropDown {
@@ -114,7 +114,7 @@
   }
   50% {
     top: 0px;
-    opacity: 1;
+    opacity: .5;
   }
   to {
     top: 20px;
@@ -129,7 +129,7 @@
   }
   50% {
     top: 0px;
-    opacity: 1;
+    opacity: .5;
   }
   to {
     top: 20px;
@@ -443,15 +443,17 @@
 .form input[type=email],
 textarea,
 select {
+  font-weight: 600;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: 1px solid #BEBEBE;
   padding: 7px;
   margin: 0px;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
+  -webkit-transition: all .15s ease-in-out;
+  transition: all .15s ease-in-out;
   outline: none;
   border-radius: 5px;
+  background-color: #f0f0f0;
 }
 
 .form input[type=text]:focus,
@@ -464,6 +466,7 @@ select {
 .form input[type=email]:focus,
 .form textarea:focus,
 .form select:focus {
+  background-color: #fff;
   -webkit-box-shadow: 0 0 8px #99a7b1;
           box-shadow: 0 0 8px #99a7b1;
   border: 1px solid #99a7b1;
@@ -478,7 +481,9 @@ select {
 }
 
 .form .form-textarea {
+  resize: vertical;
   height: 100px;
+  max-height: 300px;
 }
 
 .form input._error {
@@ -494,16 +499,23 @@ select {
 }
 
 .form button[type=submit], .form button[type=button] {
+  position: relative;
   background: #4B99AD;
   padding: 8px 15px 8px 15px;
   border: none;
   color: #fff;
 }
 
-.form input[type=submit]:hover, .form input[type=button]:hover {
+.form button[type=submit]:hover, .form button[type=button]:hover {
   background: #4691A4;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  -webkit-box-shadow: 0 0 8px #99a7b1;
+          box-shadow: 0 0 8px #99a7b1;
+}
+
+.form button[type=submit]:focus, .form button[type=button]:focus {
+  background: #4691A4;
+  -webkit-box-shadow: 0 0 8px #99a7b1;
+          box-shadow: 0 0 8px #99a7b1;
 }
 
 @media screen and (max-width: 992px) {
