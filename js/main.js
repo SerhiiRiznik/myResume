@@ -1,6 +1,6 @@
 
 document.addEventListener('scroll', headerSticky)
-const navbarHeader = document.querySelector(".navbar_wrap");
+const navbarHeader = document.querySelector(".navbar");
 const navbarSticky = navbarHeader.offsetTop;  // точка верхного екрана
 // console.log(navbarHeader.scrollHeight)  // висота навбара
 
@@ -128,8 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
    async function formSend(e) {
       e.preventDefault()
-
-
 
       let formData = new FormData(form)
 
