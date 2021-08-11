@@ -7,7 +7,8 @@
 /*--------------------*/
 /*--------------------*/
 /*-Mobile-*/
-body {
+body,
+p {
   margin: 0;
   padding: 0;
 }
@@ -17,6 +18,14 @@ li,
 a {
   list-style: none;
   text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
 }
 
 a:active,
@@ -266,7 +275,6 @@ a:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background-color: #464646;
 }
 
 .leftcol {
@@ -346,18 +354,10 @@ a:hover {
 .rightcol {
   padding: 70px 15px 0;
   width: 69.4%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
   background-color: #141414;
 }
 
-.about-me__blocks-wrapper {
-  padding: 0 10px;
-  color: white;
-}
-
-.about-me__blocks-wrapper h3 {
+.blocks-wrapper__tittle {
   color: #c7c7c7;
   position: relative;
   left: -1000%;
@@ -372,7 +372,20 @@ a:hover {
           animation-duration: 1s;
 }
 
-.about-me__skils-items {
+.blocks-wrapper__subtittle {
+  color: #fff;
+  font-size: 22px;
+  line-height: 1.25em;
+  padding: 0 0 1em 0;
+  text-align: justify;
+}
+
+.profile__blocks-wrapper {
+  padding: 0 10px;
+  color: white;
+}
+
+.profile__skils-items {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -410,12 +423,16 @@ a:hover {
           box-shadow: 0px 5px 20px 5px rgba(0, 0, 0, 0.8);
 }
 
+.footer {
+  background-color: #141414;
+}
+
 .form {
   position: relative;
   margin: 10px auto;
   max-width: 400px;
   padding: 20px 12px 10px 20px;
-  width: 100% !important;
+  color: #fff;
 }
 
 .form::after {

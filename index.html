@@ -22,9 +22,6 @@
 <body>
 
    <header class="header" id="home">
-      <div class="header__img">
-         <img src="./img/header-background.jpg" alt="header-background">
-        </div>
       <div class="header_content">
          <p class="header_content__tittle">Hi, I'm Serhii Riznyk</p>
          <h2 class="header_content__subtittle">
@@ -50,7 +47,7 @@
    </header>
    <nav class="navbar">
       <div class="navbar__wrap">
-         <a class="navbar-brand-logo" href="#">Navbar</a>
+         <a class="navbar-brand-logo" href="#">Serhii Riznyk</a>
          <!-- <button class="btn-navbar-toggler" type="button">
                             <span class="navbar-toggler-icon"></span>
                         </button> -->
@@ -60,14 +57,14 @@
                   <a class="nav-link" href="#home">Home</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="#about">About</a>
+                  <a class="nav-link" href="#profile">Profile</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="#portfolio">Portfolio</a>
+                  <a class="nav-link" href="#skills">Skills</a>
                </li>
-               <li class="nav-item">
+               <!-- <li class="nav-item">
                   <a class="nav-link" href="#blog">Blog</a>
-               </li>
+               </li> -->
                <li class="nav-item">
                   <a class="nav-link" href="#contact">Contact</a>
                </li>
@@ -108,12 +105,13 @@
          </div>
       </section>
       <section class="rightcol">
-         <div class="about-me__blocks-wrapper" id="about">
+         <div class="profile__blocks-wrapper" id="profile">
             <h3 class="blocks-wrapper__tittle">
-               About
+               Profile
             </h3>
+            <p class='blocks-wrapper__subtittle'>Goal-oriented employee, fast learner, open-minded, communicative</p>
             <div class="block-wrapper">
-               <ul class="about-me__skils-items">
+               <ul class="profile__skils-items">
                   <li class="skil-item">
                      <svg style="fill: #fff;" height="100px" width="100px" viewBox="0 -38 512.00096 512"
                         xmlns="http://www.w3.org/2000/svg">
@@ -201,66 +199,59 @@
                </ul>
             </div>
          </div>
-         <div class="about-me__blocks-wrapper" id="portfolio">
-            <h3 class="blocks-wrapper__tittle">Portfolio</h3>
+         <div class="about-me__blocks-wrapper" id="skills">
+            <h3 class="blocks-wrapper__tittle">Skills</h3>
             <div class="block-wrapper">
-               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi excepturi beatae eum eveniet
+               <p class="blocks-wrapper__subtittle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi excepturi beatae eum eveniet
                   repudiandae. Necessitatibus qui quasi totam corporis voluptatibus minus porro, sint vero
                   molestias eius, aliquid voluptatum aperiam sequi.</p>
             </div>
          </div>
-         <div class="about-me__blocks-wrapper" id="blog">
+         <!-- <div class="about-me__blocks-wrapper" id="blog">
             <h3 class="blocks-wrapper__tittle">Blog</h3>
             <div class="block-wrapper">
                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi excepturi beatae eum eveniet
                   repudiandae. Necessitatibus qui quasi totam corporis voluptatibus minus porro, sint vero
                   molestias eius, aliquid voluptatum aperiam sequi.</p>
             </div>
-         </div>
-         <div class="about-me__blocks-wrapper" id="contact">
-            <h3 class="blocks-wrapper__tittle">Contact</h3>
-            <div class="block-wrapper">
-               <form action="#" id='form' class="form">
-                  <ul>
-                     <li>
-                        <label for="name">Your Name</label>
-                        <input type="text" name="name" id="name" class="form-long _req">
-                     </li>
-                     <li>
-                        <label for="email">Your Email Address</label>
-                        <input type="email" name="email" id="email" class="form-long _req email">
-                     </li>
-                     <li>
-                        <label for="subject">Your Subject</label>
-                        <input type="text" name="subject" id="subject" class="form-control form-long">
-                     </li>
-                     <li>
-                        <label for="message">Your Message</label>
-                        <textarea name="message" id="message" class="form-long form-textarea" rows="12"></textarea>
-                     </li>
-                     <li>
-                        <div style="transform:scale(0); opacity:0;">
-                           <div class="g-recaptcha"></div>
-                        </div>
-                     </li>
-                     <li>
-                        <button type="submit" />Submit
-                     </li>
-                  </ul>
-               </form>
-            </div>
-         </div>
+         </div> -->
+         
       </section>
-
-
    </main>
-
-   <script>
-
-   </script>
-
    <footer class="footer">
-      <div class=""></div>
+      <div class="about-me__blocks-wrapper" id="contact">
+         <h3 class="blocks-wrapper__tittle">Contact</h3>
+         <div class="block-wrapper">
+            <form action="#" id='form' class="form">
+               <ul>
+                  <li>
+                     <label for="name">Your Name</label>
+                     <input type="text" name="name" id="name" class="form-long _req">
+                  </li>
+                  <li>
+                     <label for="email">Your Email Address</label>
+                     <input type="email" name="email" id="email" class="form-long _req email">
+                  </li>
+                  <li>
+                     <label for="subject">Your Subject</label>
+                     <input type="text" name="subject" id="subject" class="form-control form-long">
+                  </li>
+                  <li>
+                     <label for="message">Your Message</label>
+                     <textarea name="message" id="message" class="form-long form-textarea" rows="12"></textarea>
+                  </li>
+                  <li style="display: none;">
+                     <div ">
+                        <div class="g-recaptcha"></div>
+                     </div>
+                  </li>
+                  <li>
+                     <button type="submit" />Submit
+                  </li>
+               </ul>
+            </form>
+         </div>
+      </div>
    </footer>
 
 

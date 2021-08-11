@@ -26,7 +26,7 @@ btnForScroll.addEventListener('click', function (event) {
 
 
 
-let mainNavLinks = document.querySelectorAll(".nav-link");
+const mainNavLinks = document.querySelectorAll(".nav-link");
 
 mainNavLinks.forEach(link => {
    link.addEventListener('click', function (e) {
@@ -50,7 +50,7 @@ mainNavLinks.forEach(link => {
 window.addEventListener("scroll", event => {
    let fromTop = window.scrollY + 100;
    mainNavLinks.forEach(link => {
-      let section = document.querySelector(link.hash);
+      const section = document.querySelector(link.hash);
       if (
          section.offsetTop <= fromTop &&
          section.offsetTop + section.offsetHeight > fromTop
@@ -111,14 +111,14 @@ function animationScroll() {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-   const form = document.getElementById('form')
+   let form = document.getElementById('form')
    let recaptcha = document.querySelector('.g-recaptcha')
    recaptcha.dataset.sitekey = '6LcpxWgaAAAAAACX2TBUahxPuf3tqUyUw0nOqQWB'
    let allInput = document.querySelectorAll('input')
-   console.log(allInput);
 
    form.addEventListener('focusin', () => {
 
+      recaptcha.parentNode.parentNode.style.display = 'block'
       recaptcha.parentNode.style.transition = '.6s'
       recaptcha.parentNode.style.opacity = '1'
       recaptcha.parentNode.style.transform = 'scale(1)'
@@ -155,7 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
             recaptcha.parentNode.style.transform = 'scale(0)'
          }
       } else {
-         // alert('Заполните все поля')
          console.log('Заполните все поля')
       }
    }
