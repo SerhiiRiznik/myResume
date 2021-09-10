@@ -36,7 +36,7 @@ mainNavLinks.forEach(link => {
       const scrollTarget = document.getElementById(href);
       const topOffset = navbarHeader.offsetHeight;
       const elementPosition = scrollTarget.getBoundingClientRect().top;
-      const offsetPosition = elementPosition - topOffset;
+      const offsetPosition = elementPosition - topOffset - 19;
 
       window.scrollBy({
          top: offsetPosition,
@@ -72,7 +72,6 @@ function animationScroll() {
    const tittleAnimated = document.querySelectorAll('.blocks-wrapper__tittle')
    const headerContentTittle = document.querySelector('.header_content__tittle')
    const headerContentSubTittle = document.querySelector('.header_content__subtittle')
-   const headerContentSubTittle2 = document.querySelector('.header_content__subtittle2')
 
    const scrollFromTop = window.pageYOffset // прокрутка с начала до початку екрана
    const scrollHeight = document.documentElement.clientHeight // висота екрана
@@ -89,11 +88,6 @@ function animationScroll() {
          headerContentSubTittle.classList.add('animation')
       }
    }, 1000)
-   setTimeout(() => {
-      if (sentrWindow >= headerContentSubTittle2.offsetTop) {
-         headerContentSubTittle2.classList.add('animation')
-      }
-   }, 1500)
 
 
    tittleAnimated.forEach((e) => {

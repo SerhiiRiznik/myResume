@@ -1,26 +1,29 @@
-/*Подключения css-стили*/
-
-@import url("./main.css");
-
-/* -------------------------- */
-// @import url("header.css");
-
-// @import url("style.css");
-
-// @import url("footer.css");
-/*--------------------*/
-
 /*-Google_Fonts-*/
-// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Raleway:wght@300;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Raleway:wght@300;500;700;900&display=swap");
 /*--------------------*/
-// font-family: 'Raleway', sans-serif;
-/*--------------------*/
+@mixin informationBlock {
+  color: rgb(255, 255, 255);
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: $background;
+}
+$background: rgb(34, 38, 41);
+$backgroundMain: rgb(20, 20, 20);
+$subText: rgb(202, 208, 212);
+$subTextDecoration: #61892f;
+$mainTextDecoration: #86c232;
 
-/*-Mobile-*/
+* {
+  line-height: 1.5em;
+  font-family: "Raleway", sans-serif;
+  color: rgb(255, 255, 255);
+}
 body,
 p {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 ul,
@@ -28,6 +31,8 @@ li,
 a {
   list-style: none;
   text-decoration: none;
+  padding: 0;
+  margin: 0;
 }
 h1,
 h2,
@@ -41,7 +46,7 @@ a:active,
 a:hover {
   outline: 0;
 }
-/*--------------------*/
+/*--------HEADER------------*/
 .header {
   overflow: hidden;
   position: relative;
@@ -55,41 +60,22 @@ a:hover {
 }
 
 .header_content {
-  font-size: 24px;
-  color: rgb(255, 255, 255);
+  font-size: 22px;
   display: flex;
   flex-direction: column;
   z-index: 3;
   align-items: center;
   &__tittle {
+    font-size: 36px;
     position: relative;
     top: -1000%;
   }
   &__subtittle {
+    line-height: 1em;
     margin: 20px 0;
     width: 60%;
-    margin-bottom: 20px;
     position: relative;
-    left: -100%;
-    text-align: center;
-  }
-}
-
-.header_content__subtittle2 {
-  position: relative;
-  top: -1000%;
-  text-align: center;
-}
-.header_content {
-  p {
-    a {
-      transition: 0.2s;
-      text-decoration: underline;
-      color: rgb(255, 255, 255);
-    }
-    :hover {
-      color: rgb(153, 167, 177);
-    }
+    right: -100%;
   }
 }
 
@@ -115,22 +101,7 @@ a:hover {
     display: inline-block;
     padding: 7px;
     transform: rotate(45deg);
-    animation: dropDown 1.5s ease-out 0.5s infinite;
-  }
-}
-
-@keyframes dropDown {
-  from {
-    top: -20px;
-    opacity: 0;
-  }
-  50% {
-    top: 0px;
-    opacity: 1;
-  }
-  to {
-    top: 20px;
-    opacity: 0;
+    animation: dropDownArrow 1.5s ease-out 0.5s infinite;
   }
 }
 
@@ -145,28 +116,20 @@ a:hover {
   z-index: 2;
 }
 
-/*--------------------*/
+/*--------NAVBAR------------*/
 .navbar-sticky {
   width: 100%;
   position: fixed !important;
   top: 0;
-  animation: popDown 0.5s;
+  animation: popDownNavbar 0.5s;
 }
-@keyframes popDown {
-  from {
-    top: -40px;
-  }
-  to {
-    top: 0px;
-  }
-}
+
 .navbar {
-  background-color: #222629;
+  background-color: $background;
   left: 0;
   position: absolute;
   z-index: 1000;
   width: 100%;
-  //   height: 50px;
 
   font-size: 18px;
   &__wrap {
@@ -174,13 +137,24 @@ a:hover {
     align-items: center;
     justify-content: space-between;
     padding: 0 15px;
+    height: 50px;
+    .download__CV {
+      a {
+        border-radius: 5px;
+        padding: 5px;
+        border: 2px solid $subTextDecoration;
+        transition: 0.3s;
+        &:hover {
+          box-shadow: 0px 0px 5px 2px $subTextDecoration;
+        }
+      }
+    }
   }
 }
-.navbar-brand-logo {
-  color: #fff;
-}
+
 .navbar-nav {
   display: flex;
+  transition: 0.4s;
   .nav-item {
     margin-left: 10px;
     padding: 0 3px;
@@ -188,16 +162,9 @@ a:hover {
 }
 .navbar-nav .active {
   a {
-    // background-color: #61892f;
-    // background-color: #86c232;
-    color: rgb(153, 167, 177);
+    color: $mainTextDecoration;
   }
-  border-bottom: 1px solid #c7d0d6;
-  transition: 0.4s;
-}
-.nav-item {
-  height: 100%;
-  width: 100%;
+  border-bottom: 2px solid $mainTextDecoration;
 }
 
 .nav-item:first-child {
@@ -205,12 +172,11 @@ a:hover {
 }
 
 .nav-link {
-  color: rgb(255, 255, 255);
   transition: 0.3s;
 }
 
 .nav-link:hover {
-  color: rgb(199, 199, 199);
+  color: $subTextDecoration;
 }
 
 .main {
@@ -219,12 +185,11 @@ a:hover {
   justify-content: space-between;
 }
 
-// ----------------LeftCol---------------
-.leftcol {
+// ----------------sidebar---------------
+.sidebar {
   padding: 70px 10px 0;
-  width: 29.4%;
-  color: rgb(255, 255, 255);
-  background-color: rgb(20, 20, 20);
+  width: 30%;
+  background-color: $backgroundMain;
 }
 .about-me__wrap {
   margin: 10px 10px;
@@ -232,126 +197,117 @@ a:hover {
   .about-me {
     h2 {
       text-decoration: underline;
-      margin: 10px 50px;
-      padding: 5px 0px;
+      margin: 0px auto;
       font-size: 28px;
+      color: $mainTextDecoration;
     }
   }
   ul {
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
-    margin: 20px 10px;
     padding: 5px 0px;
     font-size: 24px;
-    :hover {
-      cursor: pointer;
-      color: rgb(199, 199, 199);
-    }
     li {
-      // position: relative;
-      padding: 3px 0px;
-      font-size: 20px;
-      left: 0;
+      color: $subTextDecoration;
+      font-size: 16px;
       a {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        color: rgb(255, 255, 255);
+        font-weight: 500;
+        padding-left: 10px;
+        width: fit-content;
+        display: block;
+        color: $subText;
         transition: all 0.15s linear;
-      }
-      :hover {
-        padding-left: 8px;
-        color: rgb(199, 199, 199);
-      }
-      ::before {
-        content: "";
-        height: 5px;
-        width: 5px;
-        display: inline-block;
-        border: solid rgb(199, 199, 199);
-
-        margin-right: 5px;
-        border-radius: 50%;
+        &:hover {
+          color: rgb(255, 255, 255);
+        }
       }
     }
   }
 }
 
 .about-me__photo {
-  border-radius: 10px;
-  margin: 0px auto;
-  height: 350px;
+  height: 270px;
   width: 250px;
-  background-color: #fff;
+  img {
+    border-radius: 10px;
+    width: inherit;
+    height: inherit;
+  }
 }
 // ----------------RightCol--------------
 
 .rightcol {
   padding: 70px 15px 0;
   width: 69.4%;
-  background-color: rgb(20, 20, 20);
+  background-color: $backgroundMain;
 }
 .blocks-wrapper__tittle {
-  color: rgb(199, 199, 199);
+  color: $mainTextDecoration;
   position: relative;
-  left: -1000%;
+  right: -1000%;
   font-weight: 700;
-  padding: 20px 0;
+  padding: 0px 0px 20px;
   width: 100%;
   font-size: 48px;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid $subTextDecoration;
   border-radius: 1px;
   border-width: 100%;
   animation-duration: 1s;
 }
-.blocks-wrapper__subtittle {
-  color: #fff;
-  font-size: 22px;
-  line-height: 1.25em;
-  padding: 0 0 1em 0;
-  text-align: justify;
+.informations__block {
+  @include informationBlock();
 }
-.profile__blocks-wrapper {
-  padding: 0 10px;
-  color: rgb(255, 255, 255);
+.profile {
+  text-indent: 20px;
 }
-.profile__skils-items {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin: 50px auto;
-}
-.skil-item {
-  color: rgb(230, 230, 230);
-  text-align: center;
-  padding: 10px;
-  margin: 10px 0;
-  max-width: 230px;
-  box-shadow: 0px 5px 20px 5px rgba(0, 0, 0, 0.2);
-  transition: 0.5s;
-  h4 {
-    font-size: 24px;
+.skills {
+  ul {
+    color: $subText;
     font-weight: 600;
+    line-height: 1.5em;
+    margin: 5px 0 15px;
+    li {
+      font-weight: 400;
+      list-style: none;
+      position: relative;
+      padding: 0 0 0 20px;
+      &::before {
+        content: "- ";
+      }
+    }
   }
-  p {
-    font-size: 16px;
-    position: relative;
+}
+.contact-me {
+  margin-bottom: 0;
+}
+.experience {
+  a {
+    color: $subTextDecoration;
+  }
+  ul {
+    color: $subText;
+    font-weight: 600;
+    line-height: 1.5em;
+    margin: 5px 0 15px;
+    li {
+      font-weight: 400;
+      list-style: none;
+      position: relative;
+      padding: 0 0 0 20px;
+
+      &::before {
+        content: "- ";
+      }
+    }
   }
 }
-.skil-item:hover {
-  box-shadow: 0px 5px 20px 5px rgba(0, 0, 0, 0.8);
-}
-.footer {
-  background-color: #141414;
-}
+
 //----------------------FORM-------------------------------------
 .form {
   position: relative;
   margin: 10px auto;
   max-width: 400px;
   padding: 20px 12px 10px 20px;
-  color: #fff;
 }
 .form::after {
   content: "";
@@ -392,6 +348,7 @@ a:hover {
 .form input[type="email"],
 textarea,
 select {
+  color: black;
   box-sizing: border-box;
   border: 1px solid #bebebe;
   padding: 7px;
@@ -410,12 +367,9 @@ select {
 .form input[type="email"]:focus,
 .form textarea:focus,
 .form select:focus {
-  box-shadow: 0 0 8px rgb(153, 167, 177);
-  border: 1px solid rgb(153, 167, 177);
+  box-shadow: 0 0 8px $mainTextDecoration;
+  border: 1px solid $mainTextDecoration;
 }
-// .form .form-divided{
-// 	width: 49%;
-// }
 
 .form .form-long {
   width: 100%;
@@ -438,23 +392,23 @@ select {
 }
 .form button[type="submit"],
 .form button[type="button"] {
-  background: #4b99ad;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: $subTextDecoration;
   padding: 8px 15px 8px 15px;
   border: none;
   color: #fff;
 }
-.form input[type="submit"]:hover,
-.form input[type="button"]:hover {
-  background: #4691a4;
-  box-shadow: none;
+
+.form button:hover {
+  transition: 0.3s;
+  box-shadow: 0px 0px 4px 2px $subTextDecoration;
 }
 //-----------------------------------------------------------
 
-//-----------------------------------------------------------
 @media screen and (max-width: 992px) {
   .header {
-    // background: url(../img/react.png) center no-repeat fixed;
-    // background-size: cover;
     height: 100%;
   }
   .header_content {
@@ -463,30 +417,38 @@ select {
     }
   }
   .main {
-    .leftcol {
+    .sidebar {
       width: 50%;
+      padding: 70px 0px 0;
+
+      .about-me__wrap {
+        margin: 0 10px;
+      }
     }
     .rightcol {
       width: 100%;
+      padding: 70px 0px 0;
+      .profile {
+        margin: 0 10px;
+      }
+      .skills {
+        margin: 10px;
+      }
+      .education {
+        margin: 10px;
+      }
     }
   }
 }
-// --------------------------------- УДАЛИТЬ ПОСЛЕ НАСТРОЙКИ АДАПТИВА
-@media screen and (max-width: 450px) {
-  .navbar-brand-logo {
+// ---------------------------------
+@media screen and (max-width: 680px) {
+  .download__CV {
     display: none;
-  }
-  .header_navbar {
-    ul {
-      font-size: 15px;
-    }
   }
 }
 // ---------------------------------
 @media screen and (max-width: 600px) {
   .header {
-    // background: url(../img/css_logo.png) center no-repeat fixed;
-    // background-size: cover;
     height: 100%;
   }
   .header_content {
@@ -496,20 +458,50 @@ select {
   }
   .main {
     display: block;
-    .leftcol {
+    .sidebar {
       width: 100%;
+      text-align: -webkit-center;
+      ul {
+        li {
+          display: flex;
+        }
+      }
+    }
+    .rightcol {
+      padding: 0;
     }
   }
 }
 
 .animation {
-  animation: fromLeft 0.7s ease forwards;
-  // animation: name duration timing-function delay iteration-count direction fill-mode;
+  animation: fromLeftAnimation 0.7s ease forwards;
 }
-@keyframes fromLeft {
+@keyframes fromLeftAnimation {
   to {
-    left: 0px;
+    right: 0px;
     top: 0;
-    // bottom: 0;
+  }
+}
+
+@keyframes dropDownArrow {
+  from {
+    top: -20px;
+    opacity: 0;
+  }
+  50% {
+    top: 0px;
+    opacity: 1;
+  }
+  to {
+    top: 20px;
+    opacity: 0;
+  }
+}
+@keyframes popDownNavbar {
+  from {
+    top: -40px;
+  }
+  to {
+    top: 0px;
   }
 }
