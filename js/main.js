@@ -1,36 +1,36 @@
 
 document.addEventListener('scroll', headerSticky)
-const navbarHeader = document.querySelector(".navbar");
+const navbarHeader = document.querySelector(".navbar")
 const navbarSticky = navbarHeader.offsetTop;  // точка верхного екрана
 // console.log(navbarHeader.scrollHeight)  // висота навбара
 
 function headerSticky() {
 
    if (window.pageYOffset - navbarHeader.scrollHeight > navbarSticky) {
-      navbarHeader.classList.add("navbar-sticky");
+      navbarHeader.classList.add("navbar-sticky")
    } else if (window.pageYOffset < navbarSticky) {
-      navbarHeader.classList.remove("navbar-sticky");
+      navbarHeader.classList.remove("navbar-sticky")
    }
 }
 
-let btnForScroll = document.querySelector('.arr-target');
+let btnForScroll = document.querySelector('.arr-target')
 btnForScroll.addEventListener('click', function (event) {
    event.preventDefault()
 
-   const windowInnerHeight = document.documentElement.clientHeight + navbarHeader.scrollHeight + 1;
+   const windowInnerHeight = document.documentElement.clientHeight + navbarHeader.scrollHeight + 1
    window.scrollBy({
       top: windowInnerHeight,
       behavior: 'smooth'
-   });
-});
+   })
+})
 
 
 
-const mainNavLinks = document.querySelectorAll(".nav-link");
+const mainNavLinks = document.querySelectorAll(".nav-link")
 
 mainNavLinks.forEach(link => {
    link.addEventListener('click', function (e) {
-      e.preventDefault();
+      e.preventDefault()
 
       let href = this.getAttribute('href').substring(1);
       const scrollTarget = document.getElementById(href);
@@ -55,9 +55,9 @@ window.addEventListener("scroll", event => {
          section.offsetTop <= fromTop &&
          section.offsetTop + section.offsetHeight > fromTop
       ) {
-         link.parentNode.classList.add("active");
+         link.parentNode.classList.add("active")
       } else {
-         link.parentNode.classList.remove("active");
+         link.parentNode.classList.remove("active")
       }
    });
 });
@@ -107,22 +107,19 @@ function animationScroll() {
 document.addEventListener('DOMContentLoaded', () => {
    let form = document.getElementById('form')
    let recaptcha = document.querySelector('.g-recaptcha')
-   recaptcha.dataset.sitekey = '6LcpxWgaAAAAAACX2TBUahxPuf3tqUyUw0nOqQWB'
-   let allInput = document.querySelectorAll('input')
-
-   form.addEventListener('focusin', () => {
-
-      recaptcha.parentNode.parentNode.style.display = 'block'
-      recaptcha.parentNode.style.transition = '.6s'
-      recaptcha.parentNode.style.opacity = '1'
-      recaptcha.parentNode.style.transform = 'scale(1)'
-   })
+   recaptcha.dataset.sitekey = '6LfCP2QcAAAAAH9sPIQokawxLwWozeTjnicfjwGs'
+   
 
    form.addEventListener('submit', formSend)
 
    async function formSend(e) {
-      e.preventDefault()
 
+      e.preventDefault()
+      let item = document.querySelector('.alert')
+      if (item) {
+         item.parentNode.removeChild(item);
+      }
+      
       let formData = new FormData(form)
 
       let error = formValidate(form)
@@ -133,36 +130,54 @@ document.addEventListener('DOMContentLoaded', () => {
             method: 'POST',
             body: formData,
          })
-
-         console.log(response)
-         if (response.ok) {
-
-            form.reset()
+         if (response) {
+            
             form.classList.remove('_sending')
-            console.log('ответ с сервера', response.ok,)
-            recaptcha.parentNode.style.opacity = '0'
-            recaptcha.parentNode.style.transform = 'scale(0)'
-         } else {
-            console.log('ответ с сервера', response.ok,)
-            form.classList.remove('_sending')
-            recaptcha.parentNode.style.opacity = '0'
-            recaptcha.parentNode.style.transform = 'scale(0)'
+
+            if (response.ok) {
+               let newdiv = alert('success', 'Your message was sent successfully!')
+               form.prepend(newdiv)
+               form.reset()
+            } else {
+               let newdiv = alert('danger', 'Your message was not sent!')
+               form.prepend(newdiv)
+               form.classList.remove('_sending')
+            }
          }
+         
       } else {
-         console.log('Заполните все поля')
+         let newdiv = alert('danger', 'Fill in all the fields')
+         form.prepend(newdiv)
       }
+     grecaptcha.reset()
    }
+   //-------------------------------
+   
+   function alert(type,message){
+         let div = document.createElement('div')
+            div.className = `alert alert-${type}`
+            div.innerHTML = `${message}`
+         return div
+
+   }
+  
+         
+   //-------------------------------
 
    function formValidate(form) {
       let error = 0
       let formReq = document.querySelectorAll('._req')
-
-      if (grecaptcha.getResponse() == "") {
-         error++
-      }
-
+      var response = grecaptcha.getResponse()
+         if(response.length == 0){
+            error++
+            return false
+         }
       for (let index = 0; index < formReq.length; index++) {
          const input = formReq[index];
+            input.addEventListener('focus',function(e){
+               e.preventDefault()
+               formRemoveError(input)
+            })
          formRemoveError(input)
          if (input.classList.contains('email')) {
             if (emailTest(input)) {
@@ -179,11 +194,9 @@ document.addEventListener('DOMContentLoaded', () => {
    }
 
    function formAddError(input) {
-      input.parentElement.classList.add('_error')
       input.classList.add('_error')
    }
    function formRemoveError(input) {
-      input.parentElement.classList.remove('_error')
       input.classList.remove('_error')
    }
 

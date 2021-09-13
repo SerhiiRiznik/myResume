@@ -81,77 +81,18 @@ try {
     $mail->addReplyTo($_POST['email'], $_POST['name']);
 
     // Content
-    $mail->Subject = "Resume Form ".$_POST['subject'];
+    $mail->Subject = "Contact Me From serhiiriznyk.42web ||".$_POST['subject'];
     $mail->Body    = <<<EOT
-Name: {$_POST['name']}
-Email: {$_POST['email']}
--------------------------------
-{$_POST['message']}
-EOT;
+            Subject: {$_POST['subject']}
+            Name: {$_POST['name']}
+            Email: {$_POST['email']}
 
+-----------------------------------------------------------------------------
+        {$_POST['message']}
+EOT;
 
     $mail->send();
     redirectSuccess();
-     
-   
 } catch (Exception $e) {
     redirectWithError("An error occurred while trying to send your message: ".$mail->ErrorInfo);
-    
 }
-
-// if(!$mail->send()){
-//    $message = 'Error'
-// }else{
-//    $message = 'Send Complited'
-// }
-
-// $response = ['message' => $message]
-
-// header('Content-type: application/json')
-// echo json_encode($errorMessage)
-
-//------------------------------------------------------------------------
-//     //Server settings
-//     $mail->SMTPDebug = CONTACTFORM_PHPMAILER_DEBUG_LEVEL;
-//     $mail->isSMTP();
-//     $mail->Host = CONTACTFORM_SMTP_HOSTNAME;
-//     $mail->SMTPAuth = true;
-//     $mail->Username = CONTACTFORM_SMTP_USERNAME;
-//     $mail->Password = CONTACTFORM_SMTP_PASSWORD;
-//     $mail->SMTPSecure = CONTACTFORM_SMTP_ENCRYPTION;
-//     $mail->Port = CONTACTFORM_SMTP_PORT;
-
-//     // Recipients
-//     $mail->setFrom(CONTACTFORM_FROM_ADDRESS, CONTACTFORM_FROM_NAME);
-//     $mail->addAddress(CONTACTFORM_TO_ADDRESS, CONTACTFORM_TO_NAME);
-//     $mail->addReplyTo($_POST['email'], $_POST['name']);
-
-//     // Content
-//     $mail->Subject = "Resume Form ".$_POST['subject'];
-//     $mail->Body    = <<<EOT
-// Name: {$_POST['name']}
-// Email: {$_POST['email']}
-
-
-
-
-
-// -------------------------------
-// {$_POST['message']}
-// EOT;
-
-// $mail->Body = $body
-
-// if(!$mail->send()){
-//    $message = 'Error'
-//    redirectWithError("An error occurred while trying to send your message: ".$mail->ErrorInfo);
-// }else{
-//    $mail->send();
-//     redirectSuccess()
-//    $message = 'Send Complited'
-// }
-
-// $response = ['message' => $message]
-
-// header('Content-type: application/json')
-// echo json_encode($response)

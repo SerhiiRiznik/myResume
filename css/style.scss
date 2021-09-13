@@ -53,8 +53,11 @@ a:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background: url(../img/header-background.jpg) center no-repeat fixed;
+  background: url(../img/header-background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   height: 100vh !important;
   background-repeat: no-repeat;
 }
@@ -152,14 +155,14 @@ a:hover {
   }
 }
 
-.navbar-nav {
-  display: flex;
-  transition: 0.4s;
-  .nav-item {
-    margin-left: 10px;
-    padding: 0 3px;
-  }
-}
+// .navbar-nav {
+//   display: flex;
+//   transition: 0.4s;
+//   .nav-item {
+//     margin-left: 10px;
+//     padding: 0 3px;
+//   }
+// }
 .navbar-nav .active {
   a {
     color: $mainTextDecoration;
@@ -348,6 +351,7 @@ a:hover {
 .form input[type="email"],
 textarea,
 select {
+  width: 100%;
   color: black;
   box-sizing: border-box;
   border: 1px solid #bebebe;
@@ -371,25 +375,13 @@ select {
   border: 1px solid $mainTextDecoration;
 }
 
-.form .form-long {
-  width: 100%;
-}
-.form .form-select {
-  width: 100%;
-}
-.form .form-textarea {
-  height: 100px;
-}
-.form input._error {
+.form ._error {
   box-shadow: 0 0 10px red;
 }
-.form input[type="submit"],
-.form input[type="button"] {
-  background: #4b99ad;
-  padding: 8px 15px 8px 15px;
-  border: none;
-  color: #fff;
+.form textarea ._error {
+  box-shadow: 0 0 10px red;
 }
+
 .form button[type="submit"],
 .form button[type="button"] {
   font-weight: 600;
@@ -405,11 +397,30 @@ select {
   transition: 0.3s;
   box-shadow: 0px 0px 4px 2px $subTextDecoration;
 }
+
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
 //-----------------------------------------------------------
 
 @media screen and (max-width: 992px) {
   .header {
     height: 100%;
+    background-attachment: unset;
   }
   .header_content {
     h2 {
@@ -417,8 +428,9 @@ select {
     }
   }
   .main {
+    flex-direction: column;
     .sidebar {
-      width: 50%;
+      width: auto;
       padding: 70px 0px 0;
 
       .about-me__wrap {
@@ -426,8 +438,8 @@ select {
       }
     }
     .rightcol {
-      width: 100%;
-      padding: 70px 0px 0;
+      width: auto;
+      padding-top: 0;
       .profile {
         margin: 0 10px;
       }
@@ -447,8 +459,9 @@ select {
   }
 }
 // ---------------------------------
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 450px) {
   .header {
+    background-size: auto;
     height: 100%;
   }
   .header_content {
