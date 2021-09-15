@@ -1,17 +1,5 @@
 
-document.addEventListener('scroll', headerSticky)
 const navbarHeader = document.querySelector(".navbar")
-const navbarSticky = navbarHeader.offsetTop;  // точка верхного екрана
-// console.log(navbarHeader.scrollHeight)  // висота навбара
-
-function headerSticky() {
-
-   if (window.pageYOffset - navbarHeader.scrollHeight > navbarSticky) {
-      navbarHeader.classList.add("navbar-sticky")
-   } else if (window.pageYOffset < navbarSticky) {
-      navbarHeader.classList.remove("navbar-sticky")
-   }
-}
 
 let btnForScroll = document.querySelector('.arr-target')
 btnForScroll.addEventListener('click', function (event) {
@@ -24,14 +12,11 @@ btnForScroll.addEventListener('click', function (event) {
    })
 })
 
-
-
 const mainNavLinks = document.querySelectorAll(".nav-link")
-
 mainNavLinks.forEach(link => {
    link.addEventListener('click', function (e) {
       e.preventDefault()
-
+      console.log(e);
       let href = this.getAttribute('href').substring(1);
       const scrollTarget = document.getElementById(href);
       const topOffset = navbarHeader.offsetHeight;
@@ -45,15 +30,25 @@ mainNavLinks.forEach(link => {
    });
 })
 
+// --------------------------ANIMATED NAV BTN----------
 
+const navButton = document.querySelector('.nav-button')
+
+navButton.addEventListener('click', ()=> {
+   const animatedIcon = document.querySelector('.animated-icon')
+
+   animatedIcon.classList.toggle('open');
+})
+
+// ----------------------------SCROLLING ANIMATION----------
 
 window.addEventListener("scroll", event => {
-   let fromTop = window.scrollY + 100;
+   let scrollFromTop = window.scrollY - window.innerHeight
    mainNavLinks.forEach(link => {
       const section = document.querySelector(link.hash);
       if (
-         section.offsetTop <= fromTop &&
-         section.offsetTop + section.offsetHeight > fromTop
+         section.offsetTop <= scrollFromTop &&
+         section.offsetTop + section.offsetHeight > scrollFromTop
       ) {
          link.parentNode.classList.add("active")
       } else {
@@ -62,10 +57,8 @@ window.addEventListener("scroll", event => {
    });
 });
 
-
-
-window.addEventListener('load', animationScroll)
-window.addEventListener('scroll', animationScroll)
+window.addEventListener('load', animationScroll, false)
+window.addEventListener('scroll', animationScroll, false)
 
 function animationScroll() {
 
@@ -75,25 +68,26 @@ function animationScroll() {
 
    const scrollFromTop = window.pageYOffset // прокрутка с начала до початку екрана
    const scrollHeight = document.documentElement.clientHeight // висота екрана
-   const sentrWindow = scrollFromTop + scrollHeight / 1.4 // центр екрана
-
+   const centerWindow = scrollHeight / 1.3 // центр екрана
 
    setTimeout(() => {
-      if (sentrWindow >= headerContentTittle.offsetTop) {
+      if (centerWindow >= headerContentTittle.offsetTop) {
          headerContentTittle.classList.add('animation')
       }
    }, 100)
    setTimeout(() => {
-      if (sentrWindow >= headerContentSubTittle.offsetTop) {
+      if (centerWindow >= headerContentSubTittle.offsetTop) {
          headerContentSubTittle.classList.add('animation')
       }
    }, 1000)
 
-
+   
    tittleAnimated.forEach((e) => {
-      let positionTopElement = e.offsetTop
 
-      if (sentrWindow >= positionTopElement) {
+
+
+      let positionTopElement = e.getBoundingClientRect()
+      if (centerWindow >= positionTopElement.top) {
          e.classList.add('animation')
       }
 
@@ -101,7 +95,7 @@ function animationScroll() {
 }
 
 
-//--------------------------------FORM SEND_____
+//--------------------------------FORM SEND--------------
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -151,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
      grecaptcha.reset()
    }
-   //-------------------------------
+   //---------------ALERT FOR FORM----------------
    
    function alert(type,message){
          let div = document.createElement('div')
@@ -162,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
    }
   
          
-   //-------------------------------
+   //--------------VALIDATE FORM-----------------
 
    function formValidate(form) {
       let error = 0
@@ -204,5 +198,3 @@ document.addEventListener('DOMContentLoaded', () => {
       return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-])+$/.test(input.value)
    }
 })
-
-

@@ -5,8 +5,8 @@
   color: rgb(255, 255, 255);
   margin: 20px 0;
   padding: 15px;
-  border-radius: 15px;
-  background-color: $background;
+  // border-radius: 15px;
+  background-color: $background !important;
 }
 $background: rgb(34, 38, 41);
 $backgroundMain: rgb(20, 20, 20);
@@ -17,34 +17,12 @@ $mainTextDecoration: #86c232;
 * {
   line-height: 1.5em;
   font-family: "Raleway", sans-serif;
-  color: rgb(255, 255, 255);
 }
-body,
-p {
-  margin: 0;
-  padding: 0;
+body {
   overflow-x: hidden;
 }
-
-ul,
-li,
-a {
-  list-style: none;
-  text-decoration: none;
-  padding: 0;
-  margin: 0;
-}
-h1,
-h2,
-h3,
-h4,
-h5 {
-  margin: 0;
-}
-
-a:active,
-a:hover {
-  outline: 0;
+.card {
+  border: none !important;
 }
 /*--------HEADER------------*/
 .header {
@@ -59,7 +37,6 @@ a:hover {
   background-size: cover;
   background-attachment: fixed;
   height: 100vh !important;
-  background-repeat: no-repeat;
 }
 
 .header_content {
@@ -68,6 +45,7 @@ a:hover {
   flex-direction: column;
   z-index: 3;
   align-items: center;
+  color: #bebebe;
   &__tittle {
     font-size: 36px;
     position: relative;
@@ -120,194 +98,230 @@ a:hover {
 }
 
 /*--------NAVBAR------------*/
-.navbar-sticky {
-  width: 100%;
-  position: fixed !important;
-  top: 0;
-  animation: popDownNavbar 0.5s;
-}
 
 .navbar {
   background-color: $background;
-  left: 0;
-  position: absolute;
-  z-index: 1000;
-  width: 100%;
-
+  .navbar-collapse {
+    width: 100%;
+    flex-grow: 0;
+  }
   font-size: 18px;
-  &__wrap {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 15px;
-    height: 50px;
-    .download__CV {
-      a {
-        border-radius: 5px;
-        padding: 5px;
-        border: 2px solid $subTextDecoration;
+
+  .download__CV {
+    a {
+      text-decoration: none;
+      border-radius: 5px;
+      padding: 5px;
+      border: 2px solid $subTextDecoration;
+      transition: 0.3s;
+      &:hover {
+        color: $mainTextDecoration;
+        box-shadow: 0px 0px 5px 2px $subTextDecoration;
+      }
+    }
+  }
+  .navbar-nav {
+    margin-left: auto;
+
+    .nav-item {
+      margin-left: 10px;
+      .nav-link {
         transition: 0.3s;
         &:hover {
-          box-shadow: 0px 0px 5px 2px $subTextDecoration;
+          color: $subTextDecoration;
         }
       }
+    }
+    .active {
+      a {
+        color: $mainTextDecoration;
+      }
+      border-bottom: 2px solid $mainTextDecoration;
     }
   }
 }
 
-// .navbar-nav {
-//   display: flex;
-//   transition: 0.4s;
-//   .nav-item {
-//     margin-left: 10px;
-//     padding: 0 3px;
-//   }
-// }
-.navbar-nav .active {
-  a {
-    color: $mainTextDecoration;
+// --------------------Animated ICON ---------------------------
+.animated-icon {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  margin: 0px;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #e3f2fd;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
   }
-  border-bottom: 2px solid $mainTextDecoration;
 }
 
-.nav-item:first-child {
-  margin-left: 0px;
+.animated-icon span:nth-child(1) {
+  top: 0px;
 }
 
-.nav-link {
-  transition: 0.3s;
+.animated-icon span:nth-child(2) {
+  top: 10px;
 }
 
-.nav-link:hover {
-  color: $subTextDecoration;
+.animated-icon span:nth-child(3) {
+  top: 20px;
 }
+
+.animated-icon.open span:nth-child(1) {
+  top: 11px;
+  transform: rotate(135deg);
+}
+
+.animated-icon.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.animated-icon.open span:nth-child(3) {
+  top: 11px;
+  transform: rotate(-135deg);
+}
+// -----------------------------------------------
 
 .main {
-  padding-top: 50px;
-  display: flex;
-  justify-content: space-between;
+  padding-top: 30px;
+  background-color: $backgroundMain;
+  ul {
+    color: $subText;
+    font-weight: 600;
+    line-height: 1.5em;
+    padding: 0 0 0 20px;
+    li {
+      font-weight: 400;
+      list-style: none;
+      // position: relative;
+
+      &::before {
+        content: "- ";
+      }
+    }
+  }
 }
 
 // ----------------sidebar---------------
 .sidebar {
-  padding: 70px 10px 0;
-  width: 30%;
   background-color: $backgroundMain;
-}
-.about-me__wrap {
-  margin: 10px 10px;
-
-  .about-me {
-    h2 {
-      text-decoration: underline;
-      margin: 0px auto;
-      font-size: 28px;
-      color: $mainTextDecoration;
+  .about-me__wrap {
+    background-color: $background !important;
+    .photo {
+      max-width: 300px;
+      align-self: center;
+      padding: 20px 10px 0;
+      img {
+        border-radius: 10px;
+      }
     }
-  }
-  ul {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    padding: 5px 0px;
-    font-size: 24px;
-    li {
-      color: $subTextDecoration;
-      font-size: 16px;
-      a {
-        font-weight: 500;
-        padding-left: 10px;
-        width: fit-content;
-        display: block;
-        color: $subText;
-        transition: all 0.15s linear;
-        &:hover {
-          color: rgb(255, 255, 255);
+    .about-me {
+      h3 {
+        font-size: 28px;
+        color: $mainTextDecoration;
+      }
+    }
+    ul {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      font-size: 24px;
+      li {
+        color: $subTextDecoration;
+        font-size: 16px;
+        a {
+          font-weight: 500;
+          padding-left: 10px;
+          width: fit-content;
+          display: block;
+          color: $subText;
+          transition: all 0.15s linear;
+          &:hover {
+            color: rgb(255, 255, 255);
+          }
         }
       }
     }
   }
 }
 
-.about-me__photo {
-  height: 270px;
-  width: 250px;
-  img {
-    border-radius: 10px;
-    width: inherit;
-    height: inherit;
-  }
-}
 // ----------------RightCol--------------
 
-.rightcol {
-  padding: 70px 15px 0;
-  width: 69.4%;
-  background-color: $backgroundMain;
-}
-.blocks-wrapper__tittle {
-  color: $mainTextDecoration;
-  position: relative;
-  right: -1000%;
-  font-weight: 700;
-  padding: 0px 0px 20px;
-  width: 100%;
-  font-size: 48px;
-  border-bottom: 2px solid $subTextDecoration;
-  border-radius: 1px;
-  border-width: 100%;
-  animation-duration: 1s;
-}
 .informations__block {
   @include informationBlock();
 }
-.profile {
-  text-indent: 20px;
-}
-.skills {
-  ul {
-    color: $subText;
-    font-weight: 600;
-    line-height: 1.5em;
-    margin: 5px 0 15px;
-    li {
-      font-weight: 400;
-      list-style: none;
-      position: relative;
-      padding: 0 0 0 20px;
-      &::before {
-        content: "- ";
+.rightcol {
+  background-color: $backgroundMain;
+  .blocks-wrapper__tittle {
+    color: $mainTextDecoration;
+    position: relative;
+    right: -1000%;
+    font-weight: 700;
+    padding: 0px 0px 20px;
+    width: 100%;
+    font-size: 48px;
+    border-bottom: 2px solid $subTextDecoration;
+  }
+  .profile {
+    margin-top: 0;
+    text-indent: 20px;
+  }
+  .skills {
+    ul {
+      color: $subText;
+      font-weight: 600;
+      line-height: 1.5em;
+      margin: 5px 0 15px;
+      li {
+        font-weight: 400;
+        list-style: none;
+        position: relative;
+        padding: 0 0 0 20px;
+        &::before {
+          content: "- ";
+        }
       }
     }
   }
-}
-.contact-me {
-  margin-bottom: 0;
-}
-.experience {
-  a {
-    color: $subTextDecoration;
-  }
-  ul {
-    color: $subText;
-    font-weight: 600;
-    line-height: 1.5em;
-    margin: 5px 0 15px;
-    li {
-      font-weight: 400;
-      list-style: none;
-      position: relative;
-      padding: 0 0 0 20px;
+  .experience {
+    a {
+      color: $subTextDecoration;
+    }
+    ul {
+      color: $subText;
+      font-weight: 600;
+      line-height: 1.5em;
+      margin: 5px 0 15px;
+      li {
+        font-weight: 400;
+        list-style: none;
+        position: relative;
+        padding: 0 0 0 20px;
 
-      &::before {
-        content: "- ";
+        &::before {
+          content: "- ";
+        }
       }
     }
+  }
+  .contact-me {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
 //----------------------FORM-------------------------------------
 .form {
-  position: relative;
   margin: 10px auto;
   max-width: 400px;
   padding: 20px 12px 10px 20px;
@@ -319,7 +333,10 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4) url(../img/25.gif) center no-repeat;
+  background: rgba(0, 0, 0, 0.4)
+    url(https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif) center
+    no-repeat;
+  background-size: 100px 100px;
   opacity: 0;
   visibility: hidden;
   transition: all 0.5s ease;
@@ -398,71 +415,26 @@ select {
   box-shadow: 0px 0px 4px 2px $subTextDecoration;
 }
 
-.alert {
-  position: relative;
-  padding: 0.75rem 1.25rem;
-  margin-bottom: 1rem;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
-}
-.alert-danger {
-  color: #721c24;
-  background-color: #f8d7da;
-  border-color: #f5c6cb;
-}
-.alert-success {
-  color: #155724;
-  background-color: #d4edda;
-  border-color: #c3e6cb;
-}
-//-----------------------------------------------------------
-
-@media screen and (max-width: 992px) {
-  .header {
-    height: 100%;
-    background-attachment: unset;
-  }
-  .header_content {
-    h2 {
-      width: 70%;
-    }
-  }
-  .main {
-    flex-direction: column;
-    .sidebar {
-      width: auto;
-      padding: 70px 0px 0;
-
-      .about-me__wrap {
-        margin: 0 10px;
-      }
-    }
-    .rightcol {
-      width: auto;
-      padding-top: 0;
-      .profile {
-        margin: 0 10px;
-      }
-      .skills {
-        margin: 10px;
-      }
-      .education {
-        margin: 10px;
-      }
-    }
-  }
-}
 // ---------------------------------
 @media screen and (max-width: 680px) {
+  .header {
+    background-attachment: initial;
+  }
+  .blocks-wrapper__tittle {
+    right: 0;
+  }
   .download__CV {
-    display: none;
+    text-align: right;
   }
 }
 // ---------------------------------
-@media screen and (max-width: 450px) {
-  .header {
-    background-size: auto;
-    height: 100%;
+@media screen and (max-width: 576px) {
+  .navbar {
+    background-color: rgb(20, 20, 20);
+    flex-wrap: nowrap !important;
+    .navbar-nav {
+      display: none;
+    }
   }
   .header_content {
     h2 {
@@ -470,9 +442,9 @@ select {
     }
   }
   .main {
-    display: block;
+    padding-top: 0;
     .sidebar {
-      width: 100%;
+      padding: 0;
       text-align: -webkit-center;
       ul {
         li {
@@ -481,7 +453,7 @@ select {
       }
     }
     .rightcol {
-      padding: 0;
+      padding: 20px 0 0 0;
     }
   }
 }

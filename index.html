@@ -12,16 +12,16 @@
 
 
    <link rel="stylesheet" href="./css/style.css" />
-   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-   integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> -->
-   <!-- reCAPTCHA Javascript -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
    <header class="header" id="home">
       <div class="header_content">
-         <p class="header_content__tittle">Hi, I'm Serhii Riznyk</p>
+         <p class="header_content__tittle ">Hi, I'm Serhii Riznyk</p>
          <h2 class="header_content__subtittle">
             At this stage, I would like to start working and developing, solving real labor problems. The main factor for me will be
             the opportunity to learn and develop with the company.
@@ -35,16 +35,25 @@
          </div>
       </div>
    </header>
-   <nav class="navbar">
-      <div class="navbar__wrap">
-         <div class="download__CV">
-            <a href="./SerhiiRiznyk_resume.DOCX" download="SerhiiRiznyk_Resume">Download resume in docx</a>
-         </div>
-         <div class="header_navbar" id="navbarNav">
-            <ul class="navbar-nav">
-               <li class="nav-item">
-                  <a class="nav-link" href="#home">Home</a>
-               </li>
+   <nav class="navbar-expand-md navbar sticky-top" id="navbar">
+      <!-- <div class="container-fluid"> -->
+         
+         <button class="navbar-toggler nav-button" type="button" data-toggle="collapse"
+            data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false"
+            aria-label="Toggle navigation"
+            >
+            <div class="animated-icon">
+               <span></span>
+               <span></span>
+               <span></span>
+            </div>
+         </button>
+         
+         <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+            <div class="download__CV">
+               <a class="" href="./SerhiiRiznyk_resume.DOCX" download="SerhiiRiznyk_Resume">Download resume in docx</a>
+            </div>
+            <ul class="navbar-nav flex-row">
                <li class="nav-item">
                   <a class="nav-link" href="#profile">Profile</a>
                </li>
@@ -58,70 +67,75 @@
                   <a class="nav-link" href="#experience">Experience</a>
                </li>
             </ul>
+            
          </div>
-      </div>
+      <!-- </div> -->
    </nav>
    <main class="main">
-      <aside class="sidebar">
-         <div class="about-me__wrap">
-            <div class="about-me__photo">
-               <img src="./img/SerhiiRiznyk.jpg" alt="photo">
+      <div class="row content m-0">
+         <aside class="sidebar col-12  col-sm-6 col-md-4">
+            <div class="about-me__wrap card wrap">
+               <div class="photo">
+                  <img class="card-img-top" src="./img/SerhiiRiznyk.jpg" alt="photo">
+               </div>
+               <div class="about-me contacts card-body">
+                  <h3 class="card-title">Contacts:</h3>
+                  <ul class="list-group">
+                     <li>Mobile phone:
+                        <a href="tel:+380960556811">+38(096) 055 68 11</a>
+                     </li>
+                     <li>Email:
+                        <a href="mailto:riznyk.serhii.v@gmail.com">riznyk.serhii.v@gmail.com</a>
+                     </li>
+                     <li>Skype
+                        <a href="skype:serg_345126?chat">Riznyk Serhii</a>
+                     </li>
+                     <li>LinkedIn:
+                        <a href="https://linkedin.com/in/сергей-резник-b106161b9" target="_blank">@RiznykSerhii</a>
+                     </li>
+                     <li>Telegram:
+                        <a href="https://telegram.me/RiznykSerhii" target="_blank">@RiznykSerhii</a>
+                     </li>
+                     <li>Github:
+                        <a href="https://github.com/SerhiiRiznik">SerhiiRiznik</a>
+                     </li>
+                  </ul>
+               </div>
+               <div class="about-me languages card-body">
+                  <h3 class="card-title">Languages:</h3>
+                  <ul class="list-group">
+                     <li>English:
+                        <span>(Elementary)</span>
+                     </li>
+                     <li>Chesh:
+                        <span>(Listening and speaking)</span>
+                     </li>
+                     <li>Ukrainian:
+                        <span>(Native)</span>
+                     </li>
+                     <li>Russian:
+                        <span>(Native)</span>
+                     </li>
+                  </ul>
+               </div>
             </div>
-            <div class="about-me contacts">
-               <h2>Contacts:</h2>
-               <ul>
-                  <li>Mobile phone:
-                     <a href="tel:+380960556811">+38(096) 055 68 11</a>
-                  </li>
-                  <li>Email:
-                     <a href="mailto:riznyk.serhii.v@gmail.com">riznyk.serhii.v@gmail.com</a></li>
-                  <li>Skype
-                     <a href="skype:serg_345126?chat">Riznyk Serhii</a>
-                  </li>
-                  <li>LinkedIn:
-                     <a href="https://linkedin.com/in/сергей-резник-b106161b9" target="_blank">@RiznykSerhii</a>
-                  </li>
-                  <li>Telegram:
-                     <a href="https://telegram.me/RiznykSerhii" target="_blank">@RiznykSerhii</a>
-                  </li>
-                  <li>Github:
-                     <a href="https://github.com/SerhiiRiznik">SerhiiRiznik</a>
-                  </li>
-               </ul>
-            </div>
-            <div class="about-me languages">
-               <h2>Languages:</h2>
-               <ul>
-                  <li>English:
-                     <span>(Elementary)</span>
-                  </li>
-                  <li>Chesh:
-                     <span>(Listening and speaking)</span>
-                  </li>
-                  <li>Ukrainian:
-                     <span>(Native)</span>
-                  </li>
-                  <li>Russian:
-                     <span>(Native)</span>
-                  </li>
-               </ul>
-            </div>
-         </div>
-      </aside>
-      <section class="rightcol">
-         <div class="profile informations__block" id="profile">
-            <h3 class="blocks-wrapper__tittle">Profile</h3>
-            <p class='blocks-wrapper__subtittle'></p>
-               <p>
-                  Actively developing frontend developer. I immerse myself in all sorts of ways in the field of IT: technical reading literature, viewing lectures and reports.
+         </aside>
+         <div class="rightcol  col-sm-6 col-md-8">
+            <section class="profile informations__block card" id="profile">
+               <h3 class="blocks-wrapper__tittle card-title">Profile</h3>
+               <p class="card-text">
+                  Actively developing frontend developer. I immerse myself in all sorts of ways in the field of IT: technical
+                  reading literature, viewing lectures and reports.
                </p>
-               <p>
-                  I am looking for a job with the prospect of development and further career growth. Not against additional training,
-                  which will increase the level of performance of the tasks. I am always ready to learn and I easily accept critics.
+               <p class="card-text">
+                  I am looking for a job with the prospect of development and further career growth. Not against additional
+                  training,
+                  which will increase the level of performance of the tasks. I am always ready to learn and I easily accept
+                  critics.
                </p>
-         </div>
-         <div class="skills informations__block" id="skills">
-            <h3 class="blocks-wrapper__tittle">Skills</h3>
+            </section>
+            <section class="skills informations__block card" id="skills">
+               <h3 class="blocks-wrapper__tittle card-title">Skills</h3>
                <ul>Programming Languages/Technologies
                   <li>HTML5,CSS3,SCSS,BEM,Material-UI;</li>
                   <li>Javascript(ES6);</li>
@@ -131,63 +145,69 @@
                   <li>Git,Github;</li>
                   <li>Cross-browser layout;</li>
                </ul>
+            </section>
+            <section class="education informations__block card" id="education">
+               <h3 class="blocks-wrapper__tittle">Education</h3>
+               <p>Cherkasy State Technological University <br>
+                  - Faculty of Electronic Technologies and Robotics | 2012 - 2018
+               </p>
+            </section>
+            <section class="experience informations__block card" id="experience">
+               <h3 class="blocks-wrapper__tittle">Experience</h3>
+               <p class='blocks-wrapper__subtittle'>
+                  Front-End Developer (non-commercial)
+               </p>
+               <ul>
+                  <li>Create templates on vanilla javascript;</li>
+                  <li>Reaction time game on React/Typescript; <a href="http://reactiontime.epizy.com/" target="_blank">(Demo)</a>
+                  </li>
+                  <li>SPA on React + Redux + React router dom;</li>
+                  <li>Todo list on React/Typescript;</li>
+               </ul>
+               All information on <a href="https://github.com/SerhiiRiznik" target="_blank">Gitgub</a>
+            </section>
+            <section class="contact-me informations__block card">
+               <div class="card-body" id="contact">
+                  <h3 class="blocks-wrapper__tittle card-title">Contact me</h3>
+                  <form action="#" id='form' class="form">
+                     <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" name="name" id="name" class="form-control _req">
+                     </div>
+
+                     <div class="form-group">
+                        <label for="email">Your Email Address</label>
+                        <input type="email" name="email" id="email" class="form-control _req">
+                     </div>
+
+                     <div class="form-group">
+                        <label for="subject">Your Subject</label>
+                        <input type="text" name="subject" id="subject" class="form-control _req">
+                     </div>
+
+                     <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea name="message" id="message" class="form-control _req" rows="6"></textarea>
+                     </div>
+
+                     <div class="form-group text-center">
+                        <div class="g-recaptcha"></div>
+                     </div>
+
+                     <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                  </form>
+               </div>
+            </section>
          </div>
-         <div class="education informations__block" id="education">
-            <h3 class="blocks-wrapper__tittle">Education</h3>
-            <p>Cherkasy State Technological University <br>
-               - Faculty of Electronic Technologies and Robotics | 2012 - 2018
-            </p>
-         </div>
-         <div class="experience informations__block" id="experience">
-            <h3 class="blocks-wrapper__tittle">Experience</h3>
-            <p class='blocks-wrapper__subtittle'>
-               Front-End Developer (non-commercial)
-            </p>
-            <ul>
-               <li>Create templates on vanilla javascript;</li>
-               <li>Reaction time game on React/Typescript; <a href="http://reactiontime.epizy.com/" target="_blank">(Demo)</a></li>
-               <li>SPA on React + Redux + React router dom;</li>
-               <li>Todo list on React/Typescript;</li>
-            </ul>
-            All information on <a href="https://github.com/SerhiiRiznik" target="_blank">Gitgub</a>
-         </div>
-         <div class="contact__form">
-            <div class="contact-me informations__block" id="contact">
-               <h3 class="blocks-wrapper__tittle">Contact me</h3>
-               <form action="#" id='form' class="form">
-                  <div class="form-group">
-                     <label for="name">Your Name</label>
-                     <input type="text" name="name" id="name" class="form-control _req">
-                  </div>
-               
-                  <div class="form-group">
-                     <label for="email">Your Email Address</label>
-                     <input type="email" name="email" id="email" class="form-control _req">
-                  </div>
-               
-                  <div class="form-group">
-                     <label for="subject">Your Subject</label>
-                     <input type="text" name="subject" id="subject" class="form-control _req">
-                  </div>
-               
-                  <div class="form-group">
-                     <label for="message">Your Message</label>
-                     <textarea name="message" id="message" class="form-control _req" rows="6"></textarea>
-                  </div>
-               
-                  <div class="form-group text-center">
-                     <div class="g-recaptcha"></div>
-                  </div>
-               
-                  <button type="submit" class="btn btn-primary btn-block">Send Message</button>
-               </form>
-            </div>
-         </div>
-      </section>
-      <div>
-         
       </div>
+      
    </main>
    <script src="./js/main.js"></script>
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
