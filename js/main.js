@@ -1,34 +1,33 @@
 
 const navbarHeader = document.querySelector(".navbar")
-
-let btnForScroll = document.querySelector('.arr-target')
-btnForScroll.addEventListener('click', function (event) {
-   event.preventDefault()
-
-   const windowInnerHeight = document.documentElement.clientHeight + navbarHeader.scrollHeight + 1
-   window.scrollBy({
-      top: windowInnerHeight,
-      behavior: 'smooth'
-   })
-})
-
 const mainNavLinks = document.querySelectorAll(".nav-link")
 mainNavLinks.forEach(link => {
    link.addEventListener('click', function (e) {
       e.preventDefault()
-      console.log(e);
-      let href = this.getAttribute('href').substring(1);
-      const scrollTarget = document.getElementById(href);
-      const topOffset = navbarHeader.offsetHeight;
-      const elementPosition = scrollTarget.getBoundingClientRect().top;
-      const offsetPosition = elementPosition - topOffset - 19;
+      let href = this.getAttribute('href').substring(1)
+      const scrollTarget = document.getElementById(href)
+      const topOffset = navbarHeader.offsetHeight
+      const elementPosition = scrollTarget.getBoundingClientRect().top
+      const offsetPosition = elementPosition - topOffset - 19
 
       window.scrollBy({
          top: offsetPosition,
          behavior: 'smooth'
-      });
-   });
+      })
+   })
 })
+
+let btnForScroll = document.querySelector('.arrow-link')
+btnForScroll.addEventListener('click', function (event) {
+   event.preventDefault()
+
+   window.scrollBy({
+      top: document.documentElement.clientHeight,
+      behavior: 'smooth'
+   })
+})
+
+
 
 // --------------------------ANIMATED NAV BTN----------
 
@@ -37,7 +36,7 @@ const navButton = document.querySelector('.nav-button')
 navButton.addEventListener('click', ()=> {
    const animatedIcon = document.querySelector('.animated-icon')
 
-   animatedIcon.classList.toggle('open');
+   animatedIcon.classList.toggle('open')
 })
 
 // ----------------------------SCROLLING ANIMATION----------
@@ -45,7 +44,7 @@ navButton.addEventListener('click', ()=> {
 window.addEventListener("scroll", event => {
    let scrollFromTop = window.scrollY - window.innerHeight
    mainNavLinks.forEach(link => {
-      const section = document.querySelector(link.hash);
+      const section = document.querySelector(link.hash)
       if (
          section.offsetTop <= scrollFromTop &&
          section.offsetTop + section.offsetHeight > scrollFromTop
@@ -54,8 +53,8 @@ window.addEventListener("scroll", event => {
       } else {
          link.parentNode.classList.remove("active")
       }
-   });
-});
+   })
+})
 
 window.addEventListener('load', animationScroll, false)
 window.addEventListener('scroll', animationScroll, false)
@@ -111,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault()
       let item = document.querySelector('.alert')
       if (item) {
-         item.parentNode.removeChild(item);
+         item.parentNode.removeChild(item)
       }
       
       let formData = new FormData(form)
@@ -167,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return false
          }
       for (let index = 0; index < formReq.length; index++) {
-         const input = formReq[index];
+         const input = formReq[index]
             input.addEventListener('focus',function(e){
                e.preventDefault()
                formRemoveError(input)

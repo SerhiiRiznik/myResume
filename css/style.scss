@@ -59,33 +59,78 @@ body {
     right: -100%;
   }
 }
-
-.arr {
-  border-radius: 50%;
+// ---------------------------------------------------
+.arrow {
+  bottom: 0;
   position: absolute;
+  .arrow-link {
+    padding: 20px;
 
-  bottom: 10px;
-  width: 25px;
-  height: 60px;
-
-  .arr-target {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 0px;
-  }
-
-  .header-content__arr-down {
-    position: relative;
-    border: solid rgb(255, 235, 205);
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 7px;
-    transform: rotate(45deg);
-    animation: dropDownArrow 1.5s ease-out 0.5s infinite;
+    .arrow-down {
+      transform: rotate(-90deg);
+      position: relative;
+      display: inline-block;
+      background: #f3f3f3;
+      opacity: 0.8;
+      height: 1px;
+      width: 45px;
+      bottom: 14px;
+      transition: all 0.3s;
+      color: #fff;
+      &::before {
+        content: "";
+        top: 0;
+        transform: rotate(0);
+        opacity: 0;
+        position: absolute;
+        background: #f3f3f3;
+        height: 1px;
+        width: 10px;
+        left: -1px;
+        margin-right: 0;
+        backface-visibility: hidden;
+        transition: all 0.3s;
+      }
+      &::after {
+        content: "";
+        top: 0;
+        transform: rotate(0);
+        opacity: 0;
+        position: absolute;
+        background: #f3f3f3;
+        height: 1px;
+        width: 10px;
+        left: -1px;
+        margin-right: 0;
+        backface-visibility: hidden;
+        transition: all 0.3s;
+      }
+    }
+    &:hover {
+      span {
+        opacity: 1;
+        bottom: 20px;
+        height: 2px;
+        &::before {
+          transform: rotate(45deg);
+          left: -2px;
+          top: 3px;
+          height: 2px;
+          opacity: 1;
+        }
+        &::after {
+          transform: rotate(-45deg);
+          left: -2px;
+          top: -3px;
+          height: 2px;
+          opacity: 1;
+        }
+      }
+    }
   }
 }
 
+// ---------------------------------------------------
 .header::after {
   content: "";
   position: absolute;
@@ -416,6 +461,11 @@ select {
 }
 
 // ---------------------------------
+@media screen and (max-width: 767px) {
+  .rightcol {
+    padding: 20px 0 0 0;
+  }
+}
 @media screen and (max-width: 680px) {
   .header {
     background-attachment: initial;
@@ -451,9 +501,6 @@ select {
           display: flex;
         }
       }
-    }
-    .rightcol {
-      padding: 20px 0 0 0;
     }
   }
 }
