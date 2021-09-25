@@ -8,7 +8,7 @@ mainNavLinks.forEach(link => {
       const scrollTarget = document.getElementById(href)
       const topOffset = navbarHeader.offsetHeight
       const elementPosition = scrollTarget.getBoundingClientRect().top
-      const offsetPosition = elementPosition - topOffset - 19
+      const offsetPosition = elementPosition - topOffset
 
       window.scrollBy({
          top: offsetPosition,
@@ -21,8 +21,8 @@ let btnForScroll = document.querySelector('.arrow-link')
 btnForScroll.addEventListener('click', function (event) {
    event.preventDefault()
 
-   window.scrollBy({
-      top: document.documentElement.clientHeight,
+   window.scrollTo({
+      top: navbarHeader.offsetTop,
       behavior: 'smooth'
    })
 })

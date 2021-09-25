@@ -6,10 +6,6 @@
   font-family: "Raleway", sans-serif;
 }
 
-body {
-  overflow-x: hidden;
-}
-
 .card {
   border: none !important;
 }
@@ -27,7 +23,6 @@ body {
           flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  background: url(../img/header-background.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -48,7 +43,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #bebebe;
+  color: #ffffff;
 }
 
 .header_content__tittle {
@@ -79,14 +74,13 @@ body {
           transform: rotate(-90deg);
   position: relative;
   display: inline-block;
-  background: #f3f3f3;
+  background: #b27f00;
   opacity: 0.8;
   height: 1px;
   width: 45px;
   bottom: 14px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  color: #fff;
 }
 
 .arrow .arrow-link .arrow-down::before {
@@ -96,7 +90,7 @@ body {
           transform: rotate(0);
   opacity: 0;
   position: absolute;
-  background: #f3f3f3;
+  background: #b27f00;
   height: 1px;
   width: 10px;
   left: -1px;
@@ -114,7 +108,7 @@ body {
           transform: rotate(0);
   opacity: 0;
   position: absolute;
-  background: #f3f3f3;
+  background: #b27f00;
   height: 1px;
   width: 10px;
   left: -1px;
@@ -162,8 +156,14 @@ body {
 
 /*--------NAVBAR------------*/
 .navbar {
-  background-color: #222629;
+  padding: 0 !important;
   font-size: 18px;
+  font-weight: 600;
+  background-color: #bebebe;
+}
+
+.navbar a {
+  color: #515151 !important;
 }
 
 .navbar .navbar-collapse {
@@ -177,15 +177,12 @@ body {
   text-decoration: none;
   border-radius: 5px;
   padding: 5px;
-  border: 2px solid #61892f;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
 .navbar .download__CV a:hover {
-  color: #86c232;
-  -webkit-box-shadow: 0px 0px 5px 2px #61892f;
-          box-shadow: 0px 0px 5px 2px #61892f;
+  color: #b27f00 !important;
 }
 
 .navbar .navbar-nav {
@@ -201,16 +198,16 @@ body {
   transition: 0.3s;
 }
 
-.navbar .navbar-nav .nav-item .nav-link:hover {
-  color: #61892f;
+.navbar .navbar-nav .nav-item:hover a {
+  color: #b27f00 !important;
 }
 
 .navbar .navbar-nav .active {
-  border-bottom: 2px solid #86c232;
+  border-bottom: 1px solid #b27f00;
 }
 
 .navbar .navbar-nav .active a {
-  color: #86c232;
+  color: #b27f00 !important;
 }
 
 .animated-icon {
@@ -269,13 +266,7 @@ body {
           transform: rotate(-135deg);
 }
 
-.main {
-  padding-top: 30px;
-  background-color: #141414;
-}
-
 .main ul {
-  color: #cad0d4;
   font-weight: 600;
   line-height: 1.5em;
   padding: 0 0 0 20px;
@@ -286,82 +277,111 @@ body {
   list-style: none;
 }
 
-.main ul li::before {
-  content: "- ";
-}
-
 .sidebar {
-  background-color: #141414;
+  background-color: #2e2e2e;
+  color: #fff;
 }
 
-.sidebar .about-me__wrap {
-  background-color: #222629 !important;
+.sidebar .card {
+  background-color: #2e2e2e !important;
 }
 
 .sidebar .about-me__wrap .photo {
   max-width: 300px;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  padding: 20px 10px 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%) rotate(-45deg);
+  -webkit-transform: translateX(-50%) rotate(-45deg);
+  width: 3.6cm;
+  height: 3.6cm;
+  z-index: 1;
+  margin-top: 70px;
+  margin-bottom: 40px;
 }
 
-.sidebar .about-me__wrap .photo img {
+.sidebar .about-me__wrap .photo .img_wrap {
+  overflow: hidden;
+  height: 3.6cm;
+}
+
+.sidebar .about-me__wrap .photo .img_wrap img {
   border-radius: 10px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background-color: #fff;
+  margin-left: -29%;
+  margin-top: -25%;
+  width: 150%;
+  height: 150%;
+  border-radius: inherit;
+}
+
+.sidebar .about-me__wrap .photo::before {
+  content: " ";
+  position: fixed;
+  z-index: 1;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 3px solid #b27f00 !important;
+  border-color: inherit;
 }
 
 .sidebar .about-me__wrap .about-me h3 {
   font-size: 28px;
-  color: #86c232;
 }
 
 .sidebar .about-me__wrap ul {
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
   font-size: 24px;
 }
 
 .sidebar .about-me__wrap ul li {
-  color: #61892f;
   font-size: 16px;
 }
 
 .sidebar .about-me__wrap ul li a {
-  font-weight: 500;
+  font-weight: 600;
   padding-left: 10px;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  display: block;
-  color: #cad0d4;
+  color: #7a7a7a;
   -webkit-transition: all 0.15s linear;
   transition: all 0.15s linear;
 }
 
 .sidebar .about-me__wrap ul li a:hover {
-  color: white;
+  color: #b27f00;
+}
+
+.sidebar .about-me__wrap ul span {
+  color: #b27f00;
 }
 
 .informations__block {
-  color: white;
+  color: #7a7a7a !important;
+  font-weight: 500;
   margin: 20px 0;
   padding: 15px;
-  background-color: #222629 !important;
+  border-radius: 15px;
+  background-color: whitesmoke !important;
 }
 
 .rightcol {
-  background-color: #141414;
+  background-color: whitesmoke;
 }
 
 .rightcol .blocks-wrapper__tittle {
-  color: #86c232;
+  color: #b27f00;
   position: relative;
   right: -1000%;
   font-weight: 700;
   padding: 0px 0px 20px;
   width: 100%;
   font-size: 48px;
-  border-bottom: 2px solid #61892f;
+  border-bottom: 2px solid #b27f00;
 }
 
 .rightcol .profile {
@@ -370,7 +390,6 @@ body {
 }
 
 .rightcol .skills ul {
-  color: #cad0d4;
   font-weight: 600;
   line-height: 1.5em;
   margin: 5px 0 15px;
@@ -388,11 +407,10 @@ body {
 }
 
 .rightcol .experience a {
-  color: #61892f;
+  color: #b27f00;
 }
 
 .rightcol .experience ul {
-  color: #cad0d4;
   font-weight: 600;
   line-height: 1.5em;
   margin: 5px 0 15px;
@@ -488,9 +506,9 @@ select {
 .form input[type="email"]:focus,
 .form textarea:focus,
 .form select:focus {
-  -webkit-box-shadow: 0 0 8px #86c232;
-          box-shadow: 0 0 8px #86c232;
-  border: 1px solid #86c232;
+  -webkit-box-shadow: 0 0 8px #b27f00;
+          box-shadow: 0 0 8px #b27f00;
+  border: 1px solid #b27f00;
 }
 
 .form ._error {
@@ -508,7 +526,7 @@ select {
   font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;
-  background: #61892f;
+  background: #b27f00;
   padding: 8px 15px 8px 15px;
   border: none;
   color: #fff;
@@ -517,8 +535,8 @@ select {
 .form button:hover {
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  -webkit-box-shadow: 0px 0px 4px 2px #61892f;
-          box-shadow: 0px 0px 4px 2px #61892f;
+  -webkit-box-shadow: 0px 0px 3px 2px #b27f00;
+          box-shadow: 0px 0px 3px 2px #b27f00;
 }
 
 @media screen and (max-width: 767px) {
@@ -536,6 +554,9 @@ select {
   }
   .download__CV {
     text-align: right;
+  }
+  .download__CV a {
+    color: #b27f00 !important;
   }
 }
 

@@ -2,24 +2,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Raleway:wght@300;500;700;900&display=swap");
 /*--------------------*/
 @mixin informationBlock {
-  color: rgb(255, 255, 255);
+  color: $text !important;
+  font-weight: 500;
   margin: 20px 0;
   padding: 15px;
-  // border-radius: 15px;
-  background-color: $background !important;
+  border-radius: 15px;
+  background-color: $_backgroundColor !important;
 }
-$background: rgb(34, 38, 41);
-$backgroundMain: rgb(20, 20, 20);
-$subText: rgb(202, 208, 212);
-$subTextDecoration: #61892f;
-$mainTextDecoration: #86c232;
+$background: rgb(46, 46, 46);
+$_backgroundColor: rgb(245, 245, 245);
+$title: rgb(81, 81, 81);
+$text: rgb(122, 122, 122);
+$_gold: rgb(178, 127, 0);
 
 * {
   line-height: 1.5em;
   font-family: "Raleway", sans-serif;
 }
 body {
-  overflow-x: hidden;
 }
 .card {
   border: none !important;
@@ -31,7 +31,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background: url(../img/header-background.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -45,7 +44,7 @@ body {
   flex-direction: column;
   z-index: 3;
   align-items: center;
-  color: #bebebe;
+  color: #ffffff;
   &__tittle {
     font-size: 36px;
     position: relative;
@@ -70,20 +69,19 @@ body {
       transform: rotate(-90deg);
       position: relative;
       display: inline-block;
-      background: #f3f3f3;
+      background: $_gold;
       opacity: 0.8;
       height: 1px;
       width: 45px;
       bottom: 14px;
       transition: all 0.3s;
-      color: #fff;
       &::before {
         content: "";
         top: 0;
         transform: rotate(0);
         opacity: 0;
         position: absolute;
-        background: #f3f3f3;
+        background: $_gold;
         height: 1px;
         width: 10px;
         left: -1px;
@@ -97,7 +95,7 @@ body {
         transform: rotate(0);
         opacity: 0;
         position: absolute;
-        background: #f3f3f3;
+        background: $_gold;
         height: 1px;
         width: 10px;
         left: -1px;
@@ -145,23 +143,28 @@ body {
 /*--------NAVBAR------------*/
 
 .navbar {
-  background-color: $background;
+  padding: 0 !important;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #bebebe;
+  a {
+    color: $title !important;
+  }
   .navbar-collapse {
     width: 100%;
     flex-grow: 0;
   }
-  font-size: 18px;
 
   .download__CV {
     a {
       text-decoration: none;
       border-radius: 5px;
       padding: 5px;
-      border: 2px solid $subTextDecoration;
+      // border: 2px solid $subTextDecoration;
       transition: 0.3s;
       &:hover {
-        color: $mainTextDecoration;
-        box-shadow: 0px 0px 5px 2px $subTextDecoration;
+        color: $_gold !important;
+        // box-shadow: 0px 0px 5px 2px $_gold;
       }
     }
   }
@@ -172,16 +175,18 @@ body {
       margin-left: 10px;
       .nav-link {
         transition: 0.3s;
-        &:hover {
-          color: $subTextDecoration;
+      }
+      &:hover {
+        a {
+          color: $_gold !important;
         }
       }
     }
     .active {
       a {
-        color: $mainTextDecoration;
+        color: $_gold !important;
       }
-      border-bottom: 2px solid $mainTextDecoration;
+      border-bottom: 1px solid $_gold;
     }
   }
 }
@@ -238,62 +243,87 @@ body {
 // -----------------------------------------------
 
 .main {
-  padding-top: 30px;
-  background-color: $backgroundMain;
   ul {
-    color: $subText;
     font-weight: 600;
     line-height: 1.5em;
     padding: 0 0 0 20px;
     li {
       font-weight: 400;
       list-style: none;
-      // position: relative;
-
-      &::before {
-        content: "- ";
-      }
     }
   }
 }
 
 // ----------------sidebar---------------
 .sidebar {
-  background-color: $backgroundMain;
-  .about-me__wrap {
+  background-color: $background;
+  color: #fff;
+
+  .card {
     background-color: $background !important;
+  }
+  .about-me__wrap {
     .photo {
       max-width: 300px;
-      align-self: center;
-      padding: 20px 10px 0;
-      img {
-        border-radius: 10px;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%) rotate(-45deg);
+      -webkit-transform: translateX(-50%) rotate(-45deg);
+      width: 3.6cm;
+      height: 3.6cm;
+      z-index: 1;
+      margin-top: 70px;
+      margin-bottom: 40px;
+      .img_wrap {
+        overflow: hidden;
+        height: 3.6cm;
+        img {
+          border-radius: 10px;
+          transform: rotate(45deg);
+          background-color: #fff;
+          margin-left: -29%;
+          margin-top: -25%;
+          width: 150%;
+          height: 150%;
+          border-radius: inherit;
+        }
+      }
+
+      &::before {
+        content: " ";
+        position: fixed;
+        z-index: 1;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        border: 3px solid $_gold !important;
+        border-color: inherit;
       }
     }
     .about-me {
       h3 {
         font-size: 28px;
-        color: $mainTextDecoration;
       }
     }
     ul {
       font-family: "Montserrat", sans-serif;
-      font-weight: 400;
       font-size: 24px;
       li {
-        color: $subTextDecoration;
         font-size: 16px;
         a {
-          font-weight: 500;
+          font-weight: 600;
           padding-left: 10px;
           width: fit-content;
-          display: block;
-          color: $subText;
+          color: $text;
           transition: all 0.15s linear;
           &:hover {
-            color: rgb(255, 255, 255);
+            color: $_gold;
           }
         }
+      }
+      span {
+        color: $_gold;
       }
     }
   }
@@ -305,16 +335,16 @@ body {
   @include informationBlock();
 }
 .rightcol {
-  background-color: $backgroundMain;
+  background-color: $_backgroundColor;
   .blocks-wrapper__tittle {
-    color: $mainTextDecoration;
+    color: $_gold;
     position: relative;
     right: -1000%;
     font-weight: 700;
     padding: 0px 0px 20px;
     width: 100%;
     font-size: 48px;
-    border-bottom: 2px solid $subTextDecoration;
+    border-bottom: 2px solid $_gold;
   }
   .profile {
     margin-top: 0;
@@ -322,7 +352,6 @@ body {
   }
   .skills {
     ul {
-      color: $subText;
       font-weight: 600;
       line-height: 1.5em;
       margin: 5px 0 15px;
@@ -339,10 +368,9 @@ body {
   }
   .experience {
     a {
-      color: $subTextDecoration;
+      color: $_gold;
     }
     ul {
-      color: $subText;
       font-weight: 600;
       line-height: 1.5em;
       margin: 5px 0 15px;
@@ -433,8 +461,8 @@ select {
 .form input[type="email"]:focus,
 .form textarea:focus,
 .form select:focus {
-  box-shadow: 0 0 8px $mainTextDecoration;
-  border: 1px solid $mainTextDecoration;
+  box-shadow: 0 0 8px $_gold;
+  border: 1px solid $_gold;
 }
 
 .form ._error {
@@ -449,7 +477,7 @@ select {
   font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;
-  background: $subTextDecoration;
+  background: $_gold;
   padding: 8px 15px 8px 15px;
   border: none;
   color: #fff;
@@ -457,7 +485,7 @@ select {
 
 .form button:hover {
   transition: 0.3s;
-  box-shadow: 0px 0px 4px 2px $subTextDecoration;
+  box-shadow: 0px 0px 3px 2px $_gold;
 }
 
 // ---------------------------------
@@ -475,6 +503,9 @@ select {
   }
   .download__CV {
     text-align: right;
+    a {
+      color: $_gold !important;
+    }
   }
 }
 // ---------------------------------
